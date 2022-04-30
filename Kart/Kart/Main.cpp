@@ -1,17 +1,23 @@
-#define STB_IMAGE_IMPLEMENTATION
-
 #include <glad/glad.h>
-#include <glfw3.h>
-#include <glm.hpp>
-#include <gtc/matrix_transform.hpp>
-#include <gtc/type_ptr.hpp>
-#include <stb_image.h>
+
+#include <GLFW/glfw3.h>
+
+#include <glm/glm.hpp>
+#include <glm/gtc/matrix_transform.hpp>
+#include <glm/gtc/type_ptr.hpp>
+
+#include <learnopengl/camera.h>
+#include <learnopengl/filesystem.h>
+#include <learnopengl/model.h>
+#include <learnopengl/shader_m.h>
+
 
 #include <iostream>
 #include <vector>
 #include <string>
-#include "Shader.h"
-#include "Camera.h"
+
+
+
 
 //screen size
 const int SCREEN_WIDTH = 1280;
@@ -114,7 +120,7 @@ unsigned int loadCubemap(std::vector<std::string> faces)
 	for (int i = 0; i < faces.size(); i++)
 	{
 		unsigned char* data = stbi_load(faces[i].c_str(), &width, &height, &nrChannels, 0);
-		if(data)
+		if (data)
 		{
 			glTexImage2D(GL_TEXTURE_CUBE_MAP_POSITIVE_X + i, 0, GL_RGB, width, height, 0, GL_RGB, GL_UNSIGNED_BYTE, data);
 			//stbi_image_free(data);
@@ -183,12 +189,12 @@ const float skyboxVertices[] = {
 	1.0f, -1.0f, 1.0f
 };
 const std::vector<std::string> faces{
-		"Assets/skybox/right.tga",
-		"Assets/skybox/left.tga",
-		"Assets/skybox/top.tga",
-		"Assets/skybox/bottom.tga",
-		"Assets/skybox/front.tga",
-		"Assets/skybox/back.tga"
+		 FileSystem::getPath("Assets/skybox/right.tga"),
+		 FileSystem::getPath("Assets/skybox/left.tga"),
+		 FileSystem::getPath("Assets/skybox/top.tga"),
+		 FileSystem::getPath("Assets/skybox/bottom.tga"),
+		 FileSystem::getPath("Assets/skybox/front.tga"),
+		 FileSystem::getPath("Assets/skybox/back.tga")
 };
 
 //function to initialize sky box
@@ -246,7 +252,7 @@ int main()
 	//configure skybox
 	skyboxInit();
 	//initialize shader for skybox
-	Shader skyboxShader("skybox.vs","skybox.fs");
+	Shader skyboxShader("Shaders/skybox.vs", "Shaders/skybox.fs");
 	skyboxShader.use();
 	skyboxShader.setInt("skybox", 0);
 
@@ -265,7 +271,7 @@ int main()
 		// Swap buffers and investigate IO events (key pressed, mouse movement, etc.)
 		glfwSwapBuffers(window);
 
-		
+
 		// poll events
 		glfwPollEvents();
 	}
