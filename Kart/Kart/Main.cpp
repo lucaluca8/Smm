@@ -299,6 +299,22 @@ void renderRaceTrack(Model& model, Shader& shader)
 //TODO REDNER TRAFFIC LIGH FUNCTION
 
 //TODO TREE RENDER FUNCTION
+void tree(Model& model, Shader& shader, glm::vec3 positions)
+{
+	// view transition
+	glm::mat4 viewMatrix = camera.GetViewMatrix();
+	shader.setMat4("view", viewMatrix);
+	// model conversion
+	glm::mat4 modelMatrix = glm::mat4(1.0f);
+	modelMatrix = glm::translate(modelMatrix, positions);
+	modelMatrix = glm::rotate(modelMatrix, glm::radians(-270.0f), WORLD_UP);
+	shader.setMat4("model", modelMatrix);
+	// projection transformation
+	glm::mat4 projMatrix = camera.GetProjMatrix((float)SCREEN_WIDTH / (float)SCREEN_HEIGHT);
+	shader.setMat4("projection", projMatrix);
+
+	model.Draw(shader);
+}
 
 void renderKart(Model& model, glm::mat4 modelMatrix, Shader& shader)
 {
