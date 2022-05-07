@@ -50,7 +50,26 @@ unsigned int depthMapFBO;
 bool fpCamera = false;
 
 // mouse move
-//TODO MOUSE CALLBACK
+// mouse callback
+void mouse_callback(GLFWwindow* window, double xpos, double ypos)
+{
+	if (!isCameraFixed) {
+		if (firstMouse) {
+			lastX = xpos;
+			lastY = ypos;
+			firstMouse = false;
+		}
+
+		float xoffset = xpos - lastX;
+		float yoffset = lastY - ypos; // coordinate flip to correspond to the coordinate system
+
+		lastX = xpos;
+		lastY = ypos;
+
+		camera.ProcessMouseMovement(xoffset, yoffset);
+	}
+}
+
 //--------------------------------------------------------------------------
 
 //handle input function
