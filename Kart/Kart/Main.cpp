@@ -85,9 +85,29 @@ void keyInput(GLFWwindow* window)
 		else if (glfwGetKey(window, GLFW_KEY_DOWN) == GLFW_PRESS)
 			kart.ProcessKeyboard(K_BACKWARD, 0.04f);
 	}
-	//TO ADD FIRST PERSON CAMERA
-
-
+	else if (fpCamera == true)
+	{// first person camera
+		if (glfwGetKey(window, GLFW_KEY_UP) == GLFW_PRESS)
+		{
+			kart.ProcessKeyboard(K_FORWARD, 0.04f);
+			camera.ProcessKeyboard(FORWARD, 0.04f);
+		}
+		else if (glfwGetKey(window, GLFW_KEY_LEFT) == GLFW_PRESS)
+		{
+			kart.ProcessKeyboard(K_LEFT, 0.04f);
+			camera.ProcessKeyboard(LEFT, 0.04f);
+		}
+		else if (glfwGetKey(window, GLFW_KEY_RIGHT) == GLFW_PRESS)
+		{
+			kart.ProcessKeyboard(K_RIGHT, 0.04f);
+			camera.ProcessKeyboard(RIGHT, 0.04f);
+		}
+		else if (glfwGetKey(window, GLFW_KEY_DOWN) == GLFW_PRESS)
+		{
+			kart.ProcessKeyboard(K_BACKWARD, 0.04f);
+			camera.ProcessKeyboard(BACKWARD, 0.04f);
+		}
+	}
 }
 
 
@@ -298,7 +318,7 @@ void renderRaceTrack(Model& model, Shader& shader)
 
 //TODO REDNER TRAFFIC LIGH FUNCTION
 
-//TODO TREE RENDER FUNCTION
+// tree function
 void tree(Model& model, Shader& shader, glm::vec3 positions)
 {
 	// view transition
