@@ -463,7 +463,13 @@ int main()
 
 		renderRaceTrack(raceTrackModel, raceTrackShader);//create the racetrack
 
-		//TODO ADD TREES
+		//trees
+		tree(tree1, raceTrackShader, glm::vec3(-80.0f, 0.0f, -60.0f));
+		tree(tree1, raceTrackShader, glm::vec3(0.0f, 0.0f, 30.0f));
+		tree(tree1, raceTrackShader, glm::vec3(0.0f, 0.0f, 30.0f));
+		tree(tree1, raceTrackShader, glm::vec3(100.0f, 0.0f, 30.0f));
+		tree(tree1, raceTrackShader, glm::vec3(120.0f, 0.0f, -117.0f));
+
 
 		renderLight(raceTrackShader);
 
