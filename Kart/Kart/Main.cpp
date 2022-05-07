@@ -168,7 +168,7 @@ GLFWwindow* windowInit()
 	//make window current contex
 	glfwMakeContextCurrent(window);
 	//TODO add callback functions
-	//glfwSetCursorPosCallback(window, mouse_callback);
+	glfwSetCursorPosCallback(window, mouse_callback);
 
 	glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
 
