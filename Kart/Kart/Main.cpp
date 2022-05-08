@@ -282,6 +282,15 @@ const std::vector<std::string> faces{
 		 FileSystem::getPath("Assets/skybox/day/front.jpg"),
 		 FileSystem::getPath("Assets/skybox/day/back.jpg")
 };
+const std::vector<std::string> faces2{
+		 FileSystem::getPath("Assets/skybox/night/right.jpg"),
+		 FileSystem::getPath("Assets/skybox/night/left.jpg"),
+		 FileSystem::getPath("Assets/skybox/night/top.jpg"),
+		 FileSystem::getPath("Assets/skybox/night/bottom.jpg"),
+		 FileSystem::getPath("Assets/skybox/night/front.jpg"),
+		 FileSystem::getPath("Assets/skybox/night/back.jpg")
+};
+
 
 //function to initialize sky box
 void skyboxInit() {
@@ -297,6 +306,21 @@ void skyboxInit() {
 
 	//load textures
 	cubemapTexture = loadCubemap(faces);
+}
+
+void skyboxReload() {
+
+	//skybox VAO
+	glGenVertexArrays(1, &skyboxVAO);
+	glGenBuffers(1, &skyboxVBO);
+	glBindVertexArray(skyboxVAO);
+	glBindBuffer(GL_ARRAY_BUFFER, skyboxVBO);
+	glBufferData(GL_ARRAY_BUFFER, sizeof(skyboxVertices), &skyboxVertices, GL_STATIC_DRAW);
+	glEnableVertexAttribArray(0);
+	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), (void*)0);
+
+	//load textures
+	cubemapTexture = loadCubemap(faces2);
 }
 
 
@@ -335,7 +359,21 @@ void renderRaceTrack(Model& model, Shader& shader)
 	model.Draw(shader);
 }
 
-//TODO REDNER TRAFFIC LIGH FUNCTION
+void renderTrafficLight(Model& model, Shader& shader)
+{
+	// view transition
+	glm::mat4 viewMatrix = camera.GetViewMatrix();
+	shader.setMat4("view", viewMatrix);
+	// model conversion
+	glm::mat4 modelMatrix = glm::mat4(1.0f);
+	modelMatrix = glm::translate(modelMatrix, glm::vec3(-10.0f, 0.0f, -170.0f));
+	modelMatrix = glm::rotate(modelMatrix, glm::radians(-270.0f), WORLD_UP);
+	shader.setMat4("model", modelMatrix);
+	// projection transformation
+	glm::mat4 projMatrix = camera.GetProjMatrix((float)SCREEN_WIDTH / (float)SCREEN_HEIGHT);
+	shader.setMat4("projection", projMatrix);
+
+	model.Draw
 
 // tree function
 void tree(Model& model, Shader& shader, glm::vec3 positions)
@@ -371,6 +409,18 @@ void renderKart(Model& model, glm::mat4 modelMatrix, Shader& shader)
 
 void configKart(Model& kartModel, Shader& shader)
 {
+	if (glfwGetKey(window, GLFW_KEY_Z) == GLFW_PRESS)
+	{
+		skyboxInit();
+		isDay = true;
+	}
+	if (glfwGetKey(window, GLFW_KEY_X) == GLFW_PRESS)
+	{
+		skyboxReload();
+		isDay = false;
+	}
+
+
 	// view transition
 	glm::mat4 viewMatrix = camera.GetViewMatrix();
 	shader.setMat4("view", viewMatrix);
@@ -462,7 +512,7 @@ int main()
 		// Set lighting related properties
 
 		renderRaceTrack(raceTrackModel, raceTrackShader);//create the racetrack
-
+		renderTrafficLight(trafficLightModel, raceTrackShader);
 		//trees
 		tree(tree1, raceTrackShader, glm::vec3(-80.0f, 0.0f, -60.0f));
 		tree(tree1, raceTrackShader, glm::vec3(0.0f, 0.0f, 30.0f));
