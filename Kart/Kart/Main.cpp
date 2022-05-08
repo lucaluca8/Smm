@@ -25,6 +25,7 @@
 const int SCREEN_WIDTH = 1280;
 const int SCREEN_HEIGHT = 720;
 
+bool isDay = false;
 
 //camera initialization
 glm::vec3 cameraPos(60.0f, 20.0f, -140.0f);
@@ -373,8 +374,8 @@ void renderTrafficLight(Model& model, Shader& shader)
 	glm::mat4 projMatrix = camera.GetProjMatrix((float)SCREEN_WIDTH / (float)SCREEN_HEIGHT);
 	shader.setMat4("projection", projMatrix);
 
-	model.Draw
-
+	model.Draw(shader);
+}
 // tree function
 void tree(Model& model, Shader& shader, glm::vec3 positions)
 {
@@ -409,18 +410,7 @@ void renderKart(Model& model, glm::mat4 modelMatrix, Shader& shader)
 
 void configKart(Model& kartModel, Shader& shader)
 {
-	if (glfwGetKey(window, GLFW_KEY_Z) == GLFW_PRESS)
-	{
-		skyboxInit();
-		isDay = true;
-	}
-	if (glfwGetKey(window, GLFW_KEY_X) == GLFW_PRESS)
-	{
-		skyboxReload();
-		isDay = false;
-	}
-
-
+	
 	// view transition
 	glm::mat4 viewMatrix = camera.GetViewMatrix();
 	shader.setMat4("view", viewMatrix);
@@ -488,7 +478,16 @@ int main()
 	{
 		//wait for input
 		keyInput(window);
-		//TODO ADD BUTTON TO SWITCH BETWEEN NIGHT AND DAY
+		if (glfwGetKey(window, GLFW_KEY_Z) == GLFW_PRESS)
+		{
+			skyboxInit();
+			isDay = true;
+		}
+		if (glfwGetKey(window, GLFW_KEY_X) == GLFW_PRESS)
+		{
+			skyboxReload();
+			isDay = false;
+		}
 		if (glfwGetKey(window, GLFW_KEY_P) == GLFW_PRESS)
 		{
 			fpCamera = true;
@@ -513,7 +512,7 @@ int main()
 
 		renderRaceTrack(raceTrackModel, raceTrackShader);//create the racetrack
 
-		renderTrafficLight(trafficLightModel, raceTrackShader);
+		
 		//trees
 		tree(tree1, raceTrackShader, glm::vec3(-80.0f, 0.0f, -60.0f));
 		tree(tree1, raceTrackShader, glm::vec3(0.0f, 0.0f, 30.0f));
@@ -526,7 +525,7 @@ int main()
 
 		configKart(kartModel, raceTrackShader);
 
-		//TODO ADD TRAFFIC LIGHT
+		renderTrafficLight(trafficLightModel, raceTrackShader);
 
 		//render the skybox
 		glDepthFunc(GL_LEQUAL);
