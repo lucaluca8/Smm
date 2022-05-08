@@ -512,6 +512,7 @@ int main()
 		// Set lighting related properties
 
 		renderRaceTrack(raceTrackModel, raceTrackShader);//create the racetrack
+
 		renderTrafficLight(trafficLightModel, raceTrackShader);
 		//trees
 		tree(tree1, raceTrackShader, glm::vec3(-80.0f, 0.0f, -60.0f));

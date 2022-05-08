@@ -1,19 +1,19 @@
 ﻿  Main.cpp
-C:\Users\Giani Alberto\Desktop\Smm\Kart\Kart\Main.cpp(58,12): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-C:\Users\Giani Alberto\Desktop\Smm\Kart\Kart\Main.cpp(59,12): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-C:\Users\Giani Alberto\Desktop\Smm\Kart\Kart\Main.cpp(63,17): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-C:\Users\Giani Alberto\Desktop\Smm\Kart\Kart\Main.cpp(64,17): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-C:\Users\Giani Alberto\Desktop\Smm\Kart\Kart\Main.cpp(66,11): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-C:\Users\Giani Alberto\Desktop\Smm\Kart\Kart\Main.cpp(67,11): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-C:\Users\Giani Alberto\Desktop\Smm\Kart\Kart\Main.cpp(206,20): warning C4018: '<': signed/unsigned mismatch
-C:\Users\Giani Alberto\Desktop\Smm\Kart\Kart\Main.cpp(379,1): error C2144: syntax error: 'void' should be preceded by ';'
-C:\Users\Giani Alberto\Desktop\Smm\Kart\Kart\Main.cpp(379,6): error C3867: 'Model::Draw': non-standard syntax; use '&' to create a pointer to member
-C:\Users\Giani Alberto\Desktop\Smm\Kart\Kart\Main.cpp(379,6): error C2601: 'tree': local function definitions are illegal
-C:\Users\Giani Alberto\Desktop\Smm\Kart\Kart\Main.cpp(363): message : this line contains a '{' which has not yet been matched
-C:\Users\Giani Alberto\Desktop\Smm\Kart\Kart\Main.cpp(396,6): error C2601: 'renderKart': local function definitions are illegal
-C:\Users\Giani Alberto\Desktop\Smm\Kart\Kart\Main.cpp(363): message : this line contains a '{' which has not yet been matched
-C:\Users\Giani Alberto\Desktop\Smm\Kart\Kart\Main.cpp(410,6): error C2601: 'configKart': local function definitions are illegal
-C:\Users\Giani Alberto\Desktop\Smm\Kart\Kart\Main.cpp(363): message : this line contains a '{' which has not yet been matched
-C:\Users\Giani Alberto\Desktop\Smm\Kart\Kart\Main.cpp(451,5): error C2601: 'main': local function definitions are illegal
-C:\Users\Giani Alberto\Desktop\Smm\Kart\Kart\Main.cpp(363): message : this line contains a '{' which has not yet been matched
-C:\Users\Giani Alberto\Desktop\Smm\Kart\Kart\Main.cpp(363): fatal error C1075: '{': no matching token found
+C:\Users\OMEN_PC1\Desktop\Smm\Kart\Kart\Main.cpp(58,12): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\OMEN_PC1\Desktop\Smm\Kart\Kart\Main.cpp(59,12): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\OMEN_PC1\Desktop\Smm\Kart\Kart\Main.cpp(63,17): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+C:\Users\OMEN_PC1\Desktop\Smm\Kart\Kart\Main.cpp(64,17): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+C:\Users\OMEN_PC1\Desktop\Smm\Kart\Kart\Main.cpp(66,11): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\OMEN_PC1\Desktop\Smm\Kart\Kart\Main.cpp(67,11): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\OMEN_PC1\Desktop\Smm\Kart\Kart\Main.cpp(206,20): warning C4018: '<': signed/unsigned mismatch
+C:\Users\OMEN_PC1\Desktop\Smm\Kart\Kart\Main.cpp(379,1): error C2144: syntax error: 'void' should be preceded by ';'
+C:\Users\OMEN_PC1\Desktop\Smm\Kart\Kart\Main.cpp(379,6): error C3867: 'Model::Draw': non-standard syntax; use '&' to create a pointer to member
+C:\Users\OMEN_PC1\Desktop\Smm\Kart\Kart\Main.cpp(379,6): error C2601: 'tree': local function definitions are illegal
+C:\Users\OMEN_PC1\Desktop\Smm\Kart\Kart\Main.cpp(363): message : this line contains a '{' which has not yet been matched
+C:\Users\OMEN_PC1\Desktop\Smm\Kart\Kart\Main.cpp(396,6): error C2601: 'renderKart': local function definitions are illegal
+C:\Users\OMEN_PC1\Desktop\Smm\Kart\Kart\Main.cpp(363): message : this line contains a '{' which has not yet been matched
+C:\Users\OMEN_PC1\Desktop\Smm\Kart\Kart\Main.cpp(410,6): error C2601: 'configKart': local function definitions are illegal
+C:\Users\OMEN_PC1\Desktop\Smm\Kart\Kart\Main.cpp(363): message : this line contains a '{' which has not yet been matched
+C:\Users\OMEN_PC1\Desktop\Smm\Kart\Kart\Main.cpp(451,5): error C2601: 'main': local function definitions are illegal
+C:\Users\OMEN_PC1\Desktop\Smm\Kart\Kart\Main.cpp(363): message : this line contains a '{' which has not yet been matched
+C:\Users\OMEN_PC1\Desktop\Smm\Kart\Kart\Main.cpp(363): fatal error C1075: '{': no matching token found
